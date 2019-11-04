@@ -6,11 +6,10 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 13:42:53 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/26 16:42:23 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/10/29 16:17:44 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 size_t	ft_strlen(const char *str)

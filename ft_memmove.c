@@ -6,11 +6,10 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 12:34:50 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/26 16:37:32 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/10/29 16:15:47 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t len)

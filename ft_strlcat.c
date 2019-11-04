@@ -6,12 +6,10 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 10:33:32 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/26 17:33:12 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/10/29 16:17:26 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)

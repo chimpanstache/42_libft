@@ -6,11 +6,10 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:55:35 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/26 17:29:43 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/10/29 16:18:32 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strrchr(const char *str, int c)

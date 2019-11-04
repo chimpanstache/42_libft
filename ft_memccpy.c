@@ -6,11 +6,10 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:23:42 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/26 16:36:20 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/10/29 16:14:15 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)

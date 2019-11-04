@@ -6,11 +6,10 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:02:55 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/26 16:39:40 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/10/29 16:14:25 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)

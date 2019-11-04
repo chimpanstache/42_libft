@@ -6,11 +6,10 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:22:20 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/26 16:50:27 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/10/29 16:13:30 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
 #include "libft.h"
 
 int		ft_isdigit(int c)

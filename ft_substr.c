@@ -6,33 +6,35 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 17:41:00 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/26 17:42:56 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/11/04 11:49:13 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char		*arr;
-	const char	*ptr;
-	char		*ret;
+	char	*arr;
+	int 	i;
 
-	if (!s || start > len)
+	if (!s)
 		return (NULL);
-	ptr = s + start;
-	if (!(arr = (char *)malloc(sizeof(*arr) * (len + 1))))
-		return (NULL);
-	ret = arr;
-	while (len != 0)
+	if (start > ft_strlen(s))
 	{
-		*arr = *ptr;
-		ptr++;
-		arr++;
-		len--;
+		if (!(arr = malloc(sizeof(*arr))))
+			return (NULL);
+		*arr = '\0';
+		return (arr);
 	}
-	*arr = '\0';
-	return (ret);
+	if (!(arr = (char *)malloc((sizeof(*arr)) * (len + 1))))
+		return (NULL);
+	i = 0;
+	while (len-- && start < ft_strlen(s))
+	{
+		arr[i] = s[start];
+		i++;
+		start++;
+	}
+	arr[i] = '\0';
+	return (arr);
 }

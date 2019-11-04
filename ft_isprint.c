@@ -6,11 +6,10 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:07:02 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/26 16:50:43 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/10/29 16:13:40 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
 #include "libft.h"
 
 int		ft_isprint(int c)

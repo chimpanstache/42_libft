@@ -6,11 +6,10 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 16:06:03 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/26 17:29:25 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/10/29 16:18:09 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 int		ft_strncmp(const char *str1, const char *str2, size_t n)

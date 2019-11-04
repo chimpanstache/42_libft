@@ -6,12 +6,10 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 11:11:36 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/26 17:37:24 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/10/29 16:18:21 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <xlocale.h>
 #include "libft.h"
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)

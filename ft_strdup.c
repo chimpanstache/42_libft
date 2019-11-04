@@ -6,12 +6,10 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 15:26:12 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/26 17:38:22 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/10/29 16:17:01 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *s)
