@@ -6,7 +6,7 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 17:41:00 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/11/04 11:49:13 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/11/05 10:04:49 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*arr;
-	int 	i;
+	int		i;
 
 	if (!s)
 		return (NULL);

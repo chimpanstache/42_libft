@@ -6,16 +6,13 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 19:17:11 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/26 19:13:36 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/11/02 19:39:05 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
-int		ft_countdigit(int n)
+static size_t		ft_countdigit(int n)
 {
 	int count;
 	int nega;
@@ -34,21 +31,11 @@ int		ft_countdigit(int n)
 	return (count + 1 + nega);
 }
 
-int		ft_sign(int n)
-{
-	int sign;
-
-	sign = 0;
-	if (n < 0)
-		sign++;
-	return (sign);
-}
-
-char	*ft_itoa(int n)
+char				*ft_itoa(int n)
 {
 	long	n_l;
 	char	*arr;
-	int		dig;
+	size_t	dig;
 
 	n_l = n;
 	if (n_l < 0)
@@ -63,7 +50,7 @@ char	*ft_itoa(int n)
 		arr[dig - 1] = n_l % 10 + '0';
 		n_l /= 10;
 	}
-	if (ft_sign(n) == 1)
+	if (n < 0)
 		*arr = '-';
 	return (arr);
 }

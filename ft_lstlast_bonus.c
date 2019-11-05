@@ -1,48 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 17:19:47 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/29 17:21:14 by ehafidi          ###   ########.fr       */
+/*   Created: 2019/10/21 13:03:46 by ehafidi           #+#    #+#             */
+/*   Updated: 2019/10/30 15:39:19 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		ft_write(long tab, int fd)
+t_list	*ft_lstlast(t_list *lst)
 {
-	char c;
-
-	c = tab + '0';
-	write(fd, &c, 1);
-}
-
-static void		ft_reversive(long lnb, int fd)
-{
-	long a;
-
-	if (lnb != 0)
-	{
-		a = lnb % 10;
-		ft_reversive((lnb / 10), fd);
-		ft_write(a, fd);
-	}
-}
-
-void			ft_putnbr_fd(int nb, int fd)
-{
-	long lnb;
-
-	lnb = nb;
-	if (lnb == 0)
-		ft_write(lnb, fd);
-	if (lnb < 0)
-	{
-		lnb = -lnb;
-		write(fd, "-", 1);
-	}
-	ft_reversive(lnb, fd);
+	if (lst)
+		while (lst->next)
+			lst = lst->next;
+	return (lst);
 }

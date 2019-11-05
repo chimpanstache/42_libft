@@ -6,7 +6,7 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 17:26:43 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/29 16:12:12 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/11/05 10:30:17 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_atoi(const char *str)
 	{
 		nb = nb * 10 + (*str - '0');
 		str++;
-		if (nb > 2147483648 || nb < 0)
+		if (nb > LONG_MAX || nb < 0)
 			return (i > 0) ? 0 : -1;
 	}
 	if (i % 2 != 0)

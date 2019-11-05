@@ -1,48 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 17:19:47 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/29 17:21:14 by ehafidi          ###   ########.fr       */
+/*   Created: 2019/10/20 19:06:15 by ehafidi           #+#    #+#             */
+/*   Updated: 2019/10/30 15:40:45 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		ft_write(long tab, int fd)
+t_list	*ft_lstnew(void *content)
 {
-	char c;
+	t_list *new;
 
-	c = tab + '0';
-	write(fd, &c, 1);
-}
-
-static void		ft_reversive(long lnb, int fd)
-{
-	long a;
-
-	if (lnb != 0)
+	new = malloc(sizeof(*new));
+	if (new)
 	{
-		a = lnb % 10;
-		ft_reversive((lnb / 10), fd);
-		ft_write(a, fd);
+		new->content = content;
+		new->next = NULL;
 	}
-}
-
-void			ft_putnbr_fd(int nb, int fd)
-{
-	long lnb;
-
-	lnb = nb;
-	if (lnb == 0)
-		ft_write(lnb, fd);
-	if (lnb < 0)
-	{
-		lnb = -lnb;
-		write(fd, "-", 1);
-	}
-	ft_reversive(lnb, fd);
+	return (new);
 }

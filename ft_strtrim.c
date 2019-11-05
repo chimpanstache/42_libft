@@ -6,14 +6,13 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 11:40:25 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/26 18:53:47 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/11/05 10:07:35 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-int		trim(char const *set, char *trimstrt)
+static size_t		trim(char const *set, char *trimstrt)
 {
 	char *set_strt;
 
@@ -28,25 +27,30 @@ int		trim(char const *set, char *trimstrt)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char				*ft_strtrim(char const *s1, char const *set)
 {
-	char *trimstrt;
-	char *trimend;
-	char *new;
+	char	*trimstrt;
+	char	*trimend;
+	char	*new;
+	int		cal;
+	int		i;
 
 	if (!s1 || !set)
 		return (NULL);
 	trimstrt = (char *)s1;
 	trimend = (char *)s1 + ft_strlen(s1);
 	while (trim(set, trimstrt))
-	{
 		trimstrt++;
-		if (trimstrt == trimend)
-			return ("\0");
-	}
-	trimend--;
+	if (trimstrt < trimend)
+		trimend--;
 	while (trim(set, trimend))
 		trimend--;
-	new = ft_substr(trimstrt, 0, trimend - trimstrt + 1);
+	cal = trimend - trimstrt + 1;
+	if (!(new = (char *)malloc(sizeof(*new) * (cal + 1))))
+		return (NULL);
+	i = 0;
+	while (cal-- > 0)
+		new[i++] = *trimstrt++;
+	new[i] = '\0';
 	return (new);
 }
