@@ -6,7 +6,7 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 11:40:25 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/11/05 10:07:35 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/11/08 20:02:12 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,28 @@ static size_t		trim(char const *set, char *trimstrt)
 
 char				*ft_strtrim(char const *s1, char const *set)
 {
-	char	*trimstrt;
-	char	*trimend;
+	char	*trstrt;
+	char	*trnd;
 	char	*new;
-	int		cal;
+	int		s;
 	int		i;
 
 	if (!s1 || !set)
 		return (NULL);
-	trimstrt = (char *)s1;
-	trimend = (char *)s1 + ft_strlen(s1);
-	while (trim(set, trimstrt))
-		trimstrt++;
-	if (trimstrt < trimend)
-		trimend--;
-	while (trim(set, trimend))
-		trimend--;
-	cal = trimend - trimstrt + 1;
-	if (!(new = (char *)malloc(sizeof(*new) * (cal + 1))))
+	trstrt = (char *)s1;
+	trnd = (char *)s1 + ft_strlen(s1);
+	while (trim(set, trstrt))
+		trstrt++;
+	if (trstrt < trnd)
+		trnd--;
+	while (trim(set, trnd))
+		trnd--;
+	s = trnd - trstrt + 1;
+	if (!(new = (char *)malloc(sizeof(*new) * (s + 1))))
 		return (NULL);
 	i = 0;
-	while (cal-- > 0)
-		new[i++] = *trimstrt++;
+	while (s-- > 0 && *trstrt)
+		new[i++] = *trstrt++;
 	new[i] = '\0';
 	return (new);
 }
