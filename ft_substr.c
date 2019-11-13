@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 17:41:00 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/11/08 19:59:15 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/11/13 17:57:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,22 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*arr;
-	size_t	i;
+	unsigned int	i;
+	char			*arr;
 
-	if (!s)
-		return (NULL);
-	if (start > ft_strlen(s))
-	{
-		if (!(arr = malloc(sizeof(*arr))))
-			return (NULL);
-		*arr = '\0';
-		return (arr);
-	}
-	if (!(arr = (char *)malloc(sizeof(*arr) * (len + 1))))
-		return (NULL);
 	i = 0;
-	while (i < len && s[start] != '\0')
+	if (!s)
+		return (0);
+	if (!(arr = malloc(sizeof(*arr) * (len + 1))))
+		return (0);
+	if (ft_strlen(s) > start)
 	{
-		arr[i] = s[start];
-		i++;
-		start++;
+		while (i < len && s[start + i])
+		{
+			arr[i] = s[start + i];
+			i++;
+		}
 	}
-	arr[i] = '\0';
-	return (arr);
+	str[i] = '\0';
+	return (str);
 }

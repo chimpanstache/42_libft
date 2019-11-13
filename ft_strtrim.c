@@ -3,54 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 11:40:25 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/11/08 20:02:12 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/11/13 18:37:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t		trim(char const *set, char *trimstrt)
+static int			match(const char c, char const *set)
 {
-	char *set_strt;
+	size_t		i;
 
-	set_strt = (char *)set;
-	while (*set)
+	i = 0;
+	while (set[i])
 	{
-		if (*trimstrt == *set)
+		if (c == set[i])
 			return (1);
-		set++;
+		i++;
 	}
-	set = set_strt;
 	return (0);
+}
+
+static int			forward(char const *s1, char const *set)
+{
+	size_t		i;
+
+	i = 0;
+	while (s1[i] && match(s1[i], set))
+		i++;
+	return (i);
 }
 
 char				*ft_strtrim(char const *s1, char const *set)
 {
-	char	*trstrt;
-	char	*trnd;
-	char	*new;
-	int		s;
-	int		i;
+	size_t			trstart;
+	size_t			trend;
+	size_t			i;
+	unsigned char	*arr;
 
-	if (!s1 || !set)
-		return (NULL);
-	trstrt = (char *)s1;
-	trnd = (char *)s1 + ft_strlen(s1);
-	while (trim(set, trstrt))
-		trstrt++;
-	if (trstrt < trnd)
-		trnd--;
-	while (trim(set, trnd))
-		trnd--;
-	s = trnd - trstrt + 1;
-	if (!(new = (char *)malloc(sizeof(*new) * (s + 1))))
-		return (NULL);
-	i = 0;
-	while (s-- > 0 && *trstrt)
-		new[i++] = *trstrt++;
-	new[i] = '\0';
-	return (new);
+	if (s1 == NULL || set == NULL)
+		return (0);
+	trstart = forward(s1, set);
+	trend = ft_strlen(s1);
+	while (match(s1[trend - 1], set) && trend != trstart)
+		trend--;
+	if (!(arr = malloc(sizeof(*arr) * (trend - trstart + 1))))
+		return (0);
+	i = 0;	
+	while (i < trend - trstart)
+	{
+		arr[i] = s1[trstart + i];
+		i++;
+	}
+	arr[i] = '\0';
+	return ((char*)arr);
 }

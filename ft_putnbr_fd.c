@@ -3,46 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 17:19:47 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/29 17:21:14 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/11/13 18:40:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		ft_write(long tab, int fd)
-{
-	char c;
-
-	c = tab + '0';
-	write(fd, &c, 1);
-}
-
-static void		ft_reversive(long lnb, int fd)
-{
-	long a;
-
-	if (lnb != 0)
-	{
-		a = lnb % 10;
-		ft_reversive((lnb / 10), fd);
-		ft_write(a, fd);
-	}
-}
-
 void			ft_putnbr_fd(int nb, int fd)
 {
-	long lnb;
+	unsigned int nb;
 
-	lnb = nb;
-	if (lnb == 0)
-		ft_write(lnb, fd);
-	if (lnb < 0)
+	if (n < 0)
 	{
-		lnb = -lnb;
+		nb = (unsigned int)(n * -1);
 		write(fd, "-", 1);
 	}
-	ft_reversive(lnb, fd);
+	else
+		nb = (unsigned int)n;
+	if (nb > 9)
+		ft_putnbr_fd(nb / 10, fd);
+	ft_putchar_fd(nb % 10 + '0', fd);
 }

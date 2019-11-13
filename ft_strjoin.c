@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 18:26:37 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/11/02 18:05:18 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/11/13 18:02:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *join;
-	char *start;
+	char		*arr;
+	size_t		s1_l;
+	size_t		s2_l;
 
+	if (!s1 && !s2)
+		return (0);
 	if (!s1 || !s2)
-		return (NULL);
-	join = (char *)malloc(sizeof(*join) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!join)
-		return (NULL);
-	start = join;
-	while (*s1)
-		*join++ = *s1++;
-	while (*s2)
-		*join++ = *s2++;
-	*join = '\0';
-	return (start);
+		return (!s1 ? ft_strdup(s2) : ft_strdup(s1));
+	s1_l = ft_strlen(s1);
+	s2_l = ft_strlen(s2);
+	if (!(arr = malloc(sizeof(char) * (s1_l + s2_l + 1))))
+		return (0);
+	ft_memcpy(arr, s1, s1_l);
+	ft_memcpy(arr + s1_l, s2, s2_l);
+	arr[s1_l + s2_l] = '\0';
+	return (arr);
 }

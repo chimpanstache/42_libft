@@ -3,54 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 19:17:11 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/11/02 19:39:05 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/11/13 18:28:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t		ft_countdigit(int n)
+static int		countdigit(int n)
 {
-	int count;
-	int nega;
+	int				len;
+	unsigned int	nb;
 
-	nega = 0;
-	if (n < 0)
-		nega++;
-	count = 0;
+	len = 0;
+	nb = 0;
 	if (n == 0)
-		count++;
-	while (n != 0)
+		return (1);
+	if (n < 0)
 	{
-		n /= 10;
-		count++;
+		len++;
+		nb = (unsigned int)(n * -1);
 	}
-	return (count + 1 + nega);
+	else
+		nb = (unsigned int)n;
+	while (nb > 0)
+	{
+		nb = nb / 10;
+		len++;
+	}
+	return (len);
 }
 
 char				*ft_itoa(int n)
 {
-	long	n_l;
-	char	*arr;
-	size_t	dig;
+	unsigned int	nb;
+	int				sign;
+	int				len;
+	char			*arr;
 
-	n_l = n;
-	if (n_l < 0)
-		n_l = -n_l;
-	dig = ft_countdigit(n);
-	if (!(arr = (char *)(malloc(sizeof(*arr) * (dig)))))
-		return (NULL);
-	arr[dig - 1] = '\0';
-	while (dig != 0)
-	{
-		dig--;
-		arr[dig - 1] = n_l % 10 + '0';
-		n_l /= 10;
-	}
+	sign = 0;
+	len = countdigit(n);
+	if (!(arr = malloc(sizeof(*arr) * ((len + 1)))))
+		return (0);
+	arr[len] = 0;
 	if (n < 0)
-		*arr = '-';
+	{
+		sign = 1;
+		nb = (unsigned int)(n * -1);
+		arr[0] = '-';
+	}
+	else
+		nb = (unsigned int)n;
+	while (len-- > sign)
+	{
+		arr[len] = nb % 10 + '0';
+		nb = nb / 10;
+	}
 	return (arr);
 }

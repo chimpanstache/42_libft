@@ -3,33 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 20:51:58 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/11/11 19:07:24 by ehafidi          ###   ########.fr       */
+/*   Updated: 2019/11/13 18:36:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_wrdnb(char const *s, char c)
+static size_t	wrdnb(char const *s, char c)
 {
-	size_t wrdnmb;
+	size_t		i;
+	size_t		wrdnb;
 
-	wrdnmb = 0;
-	while (*s)
+	i = 0;
+	wrdnb = 0;
+	while (s[i])
 	{
-		if (*s != c)
-			if ((*(s - 1) != c && *(s + 1) == c) ||
-					*(s + 1) == '\0' ||
-					*(s + 1) == c)
-				wrdnmb++;
-		s++;
+		while (s[i] == c)
+			i++;
+		wrdnb++;
+		while (s[i] && s[i] != c)
+			i++;
 	}
-	return (wrdnmb);
+	return (wrdnb);
 }
 
-static char		**ft_liberate(char **arr, size_t ind)
+static char		**liberate(char **arr, int ind)
 {
 	size_t i;
 
@@ -43,51 +44,31 @@ static char		**ft_liberate(char **arr, size_t ind)
 	return (NULL);
 }
 
-static char		*sbstr_like(char *s, size_t len)
-{
-	char *subarr;
-	char *substart;
-
-	if (!(subarr = malloc(sizeof(*subarr) * (len + 1))))
-		return (NULL);
-	substart = subarr;
-	while (len--)
-		*subarr++ = *s++;
-	*subarr = '\0';
-	return (substart);
-}
-
-static char		*advance_in_str_boom(char *ptr, char c, char const *s)
-{
-	if (s)
-		ptr = (char *)s + 1;
-	while (*ptr == c)
-		ptr++;
-	return (ptr);
-}
-
 char			**ft_split(char const *s, char c)
 {
-	char	**arr;
-	char	*wd;
-	size_t	ind;
+	char		**arr;
+	size_t		i;
+	size_t		j;
 
-	ind = 0;
-	if (!s || !(arr = (malloc(sizeof(char *) * (ft_wrdnb(s, c) + 1)))))
+	if (!s)
 		return (NULL);
-	s = advance_in_str_boom((char *)s, c, 0);
-	wd = (char *)s;
+	if (!(arr = malloc(sizeof(char*) * (count(s, c) + 1))))
+		return (NULL);
+	j = 0;
 	while (*s)
 	{
-		if ((*s == c || *(s + 1) == '\0') && *wd != c && (s - wd >= 0))
+		while (*s == c)
+			s++;
+		i = 0;
+		if (*s)
 		{
-			ind++;
-			if (!(*(arr++) = sbstr_like(wd, *s == c ? s - wd : (s + 1) - wd)))
-				return (ft_liberate(arr - 1, ind));
-			wd = advance_in_str_boom(wd, c, s);
+			while (s[i] && s[i] != c)
+				i++;
+			if (!(arr[j++] = ft_strndup(s, i)))
+				return (liberate(arr, (int)(j - 1)));
+			s += i;
 		}
-		s++;
 	}
-	*arr = NULL;
-	return (arr - ind);
+	arr[j] = NULL;
+	return (arr);
 }
