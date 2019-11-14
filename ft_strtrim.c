@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 11:40:25 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/11/13 18:37:23 by marvin           ###   ########.fr       */
+/*   Updated: 2019/11/14 14:31:29 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			match(const char c, char const *set)
+static int	match(const char c, char const *set)
 {
 	size_t		i;
 
@@ -26,7 +26,7 @@ static int			match(const char c, char const *set)
 	return (0);
 }
 
-static int			forward(char const *s1, char const *set)
+static int	forward(char const *s1, char const *set)
 {
 	size_t		i;
 
@@ -36,14 +36,14 @@ static int			forward(char const *s1, char const *set)
 	return (i);
 }
 
-char				*ft_strtrim(char const *s1, char const *set)
+char		*ft_strtrim(char const *s1, char const *set)
 {
 	size_t			trstart;
 	size_t			trend;
 	size_t			i;
-	unsigned char	*arr;
+	char			*arr;
 
-	if (s1 == NULL || set == NULL)
+	if (s1 == 0 || set == 0)
 		return (0);
 	trstart = forward(s1, set);
 	trend = ft_strlen(s1);
@@ -51,12 +51,12 @@ char				*ft_strtrim(char const *s1, char const *set)
 		trend--;
 	if (!(arr = malloc(sizeof(*arr) * (trend - trstart + 1))))
 		return (0);
-	i = 0;	
+	i = 0;
 	while (i < trend - trstart)
 	{
 		arr[i] = s1[trstart + i];
 		i++;
 	}
 	arr[i] = '\0';
-	return ((char*)arr);
+	return (arr);
 }

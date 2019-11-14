@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/14 12:27:42 by ehafidi           #+#    #+#             */
+/*   Updated: 2019/11/14 14:37:17 by ehafidi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strndup(const char *str, size_t len)
@@ -5,7 +17,7 @@ char	*ft_strndup(const char *str, size_t len)
 	unsigned int	i;
 	char			*copy;
 
-	if (!(s2 = malloc(sizeof(*copy) * (len + 1))))
+	if (!(copy = malloc(sizeof(*copy) * (len + 1))))
 		return (0);
 	i = 0;
 	while (i < len)

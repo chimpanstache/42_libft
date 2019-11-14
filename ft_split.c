@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 20:51:58 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/11/13 18:36:42 by marvin           ###   ########.fr       */
+/*   Updated: 2019/11/14 14:39:04 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static size_t	wrdnb(char const *s, char c)
 
 static char		**liberate(char **arr, int ind)
 {
-	size_t i;
+	int i;
 
 	i = 0;
 	while (i < ind)
@@ -52,7 +52,7 @@ char			**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	if (!(arr = malloc(sizeof(char*) * (count(s, c) + 1))))
+	if (!(arr = malloc(sizeof(char*) * (wrdnb(s, c) + 1))))
 		return (NULL);
 	j = 0;
 	while (*s)
