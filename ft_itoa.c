@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 19:17:11 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/11/13 18:28:48 by marvin           ###   ########.fr       */
+/*   Updated: 2019/11/14 14:30:40 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		countdigit(int n)
+static int	countdigit(int n)
 {
 	int				len;
 	unsigned int	nb;
@@ -36,7 +36,7 @@ static int		countdigit(int n)
 	return (len);
 }
 
-char				*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	unsigned int	nb;
 	int				sign;
