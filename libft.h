@@ -6,12 +6,16 @@
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 14:52:03 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/11/14 14:36:38 by ehafidi          ###   ########.fr       */
+/*   Updated: 2020/03/09 15:51:01 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE
+# define BUFFER_SIZE 1
+# endif
 
 # include <string.h>
 # include <stdlib.h>
@@ -69,5 +73,9 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 							void (*del)(void *));
+char			*ft_strcpy(char *dest, char *src);
+int				ft_check_nl(char *str);
+char			*ft_readline(char *line, int fd);
+int				get_next_line(int fd, char **line);
 
 #endif

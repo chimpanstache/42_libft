@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_readline.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/26 17:41:00 by ehafidi           #+#    #+#             */
-/*   Updated: 2020/03/09 15:18:53 by ehafidi          ###   ########.fr       */
+/*   Created: 2020/03/09 15:12:40 by ehafidi           #+#    #+#             */
+/*   Updated: 2020/03/09 15:23:18 by ehafidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_readline(char *line, int fd)
 {
-	char	*arr;
-	size_t	i;
+	char	*buf;
+	int		ret;
 
-	if (!s)
+	ret = 1;
+	if (!(buf = malloc(sizeof(*buf) * (BUFFER_SIZE + 1))))
 		return (NULL);
-	if (start > ft_strlen(s))
-		len = 0;
-	if (!(arr = (char*)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	i = 0;
-	while (i < len && s[i] != '\0')
+	while (ft_check_nl(line) < 0 && (ret = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
-		arr[i] = s[start];
-		i++;
-		start++;
+		buf[ret] = '\0';
+		if (!(line = ft_strjoin(line, buf)))
+		{
+			free(buf);
+			return (NULL);
+		}
+		if (ft_check_nl(line) >= 0)
+			break ;
 	}
-	arr[i] = '\0';
-	free((char *)s);
-	return (arr);
+	if (ret < 0)
+		return (NULL);
+	free(buf);
+	return (line);
 }
