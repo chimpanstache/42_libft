@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stuntman <stuntman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:13:24 by ehafidi           #+#    #+#             */
-/*   Updated: 2020/03/09 15:33:54 by ehafidi          ###   ########.fr       */
+/*   Updated: 2021/01/06 15:35:46 by stuntman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int		get_next_line(int fd, char **line) 
 {
-	static char rest[OPEN_MAX][BUFFER_SIZE + 1];
+	static char rest[FOPEN_MAX][BUFFER_SIZE + 1];
 	int			nl;
 
-	if (fd < 0 || line == 0 || BUFFER_SIZE < 1 || fd > OPEN_MAX)
+	if (fd < 0 || line == 0 || BUFFER_SIZE < 1 || fd > FOPEN_MAX)
 		return (-1);
 	if (!(*line = ft_strdup(rest[fd])))
 		return (-1);
