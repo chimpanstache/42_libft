@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stuntman <stuntman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 12:50:35 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/30 15:41:33 by ehafidi          ###   ########.fr       */
+/*   Updated: 2021/01/06 15:25:55 by stuntman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int i;
 

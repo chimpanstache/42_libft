@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehafidi <ehafidi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stuntman <stuntman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:15:28 by ehafidi           #+#    #+#             */
-/*   Updated: 2019/10/30 15:37:52 by ehafidi          ###   ########.fr       */
+/*   Updated: 2021/01/06 14:50:14 by stuntman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	if (lst && del)
 	{
-		del(lst->content);
+		(*del)(lst->content);
 		free(lst);
 	}
-	return ;
 }
