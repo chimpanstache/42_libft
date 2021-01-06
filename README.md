@@ -11,3 +11,4 @@ git clone https://github.com/ehafidi/libft.git
 cd libft
 make 
 ```
+After compiling, the library named libft.a will be built and usable for any C program.
